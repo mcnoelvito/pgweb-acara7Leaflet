@@ -83,6 +83,14 @@
                 popupContent:'Area Departemen Teknologi Kebumian'
             }
             ];
+            polygons.forEachpolygons(function (polygonData) {
+                var polygon = L.polygon (polygonData.coordinates, {
+                    color: polygonData.color,
+                    fillcolor: polygonData.fillcolor,
+                    fillopacity: polygonData.fillopacity 
+                }).addTo(map);
+                // Menambahkan pop-up informasi 
+                polygon.bindPopup(polygonData.popupContent); });
 
         // Menambahkan popup
         marker.bindPopup("<b>Hello world!</b><br>I am GIS Study Program.").openPopup();
