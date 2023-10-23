@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+</head>
+<body>
+    <div id="map" style="height: 700px;"></div>
+
+    <!-- Pastikan Anda meletakkan ini SETELAH Leaflet CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+    <script>
+        // Inisialisasi peta
+        var map = L.map('map').setView([-7.79, 110.38], 13);
+
+        // Menambahkan layer tile (OpenStreetMap)
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Menambahkan marker
+        var marker = L.marker([-7.769,110.377]).addTo(map);
+        var marker = L.marker([-7.795670409348718, 110.38418553124184]).addTo(map);
+        marker.bindPopup("Stadion Mandala Krida").openPopup();
+        var marker = L.marker([-7.773665828835122, 110.37254015398229]).addTo(map);
+        marker.bindPopup("Gedung TILC").openPopup();
+        var marker = L.marker([-7.769965095534627, 110.3778810830278]).addTo(map);
+        marker.bindPopup("GSP").openPopup();
+        var marker = L.marker([-7.781894599221115, 110.40109741915394]).addTo(map);
+        marker.bindPopup("Ambarrukmo Plaza").openPopup();
+        var marker = L.marker([-7.79522868441105, 110.3828626667635]).addTo(map);
+        marker.bindPopup("Darmaputera Baciro").openPopup();
+        var marker = L.marker([-7.790358686193606, 110.3754639043313]).addTo(map);
+        marker.bindPopup("Stasiun Lempuyangan").openPopup();
+        var marker = L.marker([-7.789224420060802, 110.3635301886325]).addTo(map);
+        marker.bindPopup("Stasiun Tugu").openPopup();
+        var marker = L.marker([-7.7827142096556186, 110.36706437845451]).addTo(map);
+        marker.bindPopup("Tugu Yogyakarta").openPopup();
+        var marker = L.marker([-7.7924420060802, 110.36584301886325]).addTo(map);
+        marker.bindPopup("Jalan Malioboro").openPopup();
+        var marker = L.marker([-7.775021343047386, 110.3744617229106]).addTo(map);
+        marker.bindPopup("<b>Hello world!</b><br>I am GIS Study Program.").openPopup();
+
+        // Menambahkan lingkaran
+        var circle = L.circle([-7.79,110.3808], {
+            color: 'green',
+            fillColor: 'green',
+            fillOpacity: 0.4,
+            radius: 6500
+        }).addTo(map);
+
+        // Menambahkan poligon
+        var polygon = L.polygon([
+            [-7.769,110.377],
+            [-7.79522868441105, 110.3828626667635],
+            [-7.775021343047386, 110.3744617229106]
+        ]).addTo(map);
+
+        // Menambahkan popup
+        marker.bindPopup("<b>Hello world!</b><br>I am GIS Study Program.").openPopup();
+        circle.bindPopup("I am a circle.");
+        polygon.bindPopup("I am a polygon.");
+
+        // Mengelola klik pada peta
+        var popup = L.popup();
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        }
+        map.on('click', onMapClick);
+    </script>
+</body>
+</html>
