@@ -55,11 +55,34 @@
         }).addTo(map);
 
         // Menambahkan poligon
-        var polygon = L.polygon([
-            [-7.769,110.377],
-            [-7.79522868441105, 110.3828626667635],
-            [-7.775021343047386, 110.3744617229106]
-        ]).addTo(map);
+        var polygons = [
+            {
+                coordinates: [
+                [-7.796250794288734, 110.38273283235398],
+                [-7.795559, 110.381921],
+                [-7.794390674966058, 110.38236162163027],
+                [-7.794601129249985, 110.38324544418367]
+                ],
+                color:'blue',
+                fillColor:'blue',
+                fillOpacity:0.5,
+                popupContent:'Area Asrama Darmaputera Baciro'
+            },
+            {
+                coordinates: [
+                [-7.775202377882924, 110.3746755450435],
+                [-7.7749937578395425, 110.37414443751827],
+                [-7.774674570059785, 110.37428002042002],
+                [-7.774688808549258, 110.3743343273465],
+                [-7.774510106113771, 110.37441411892203],
+                [-7.774676197612198, 110.37483349612133]
+                ],
+                color:'green',
+                fillColor:'green',
+                fillOpacity:0.5,
+                popupContent:'Area Departemen Teknologi Kebumian'
+            }
+            ].addTo(map);
 
         // Menambahkan popup
         marker.bindPopup("<b>Hello world!</b><br>I am GIS Study Program.").openPopup();
